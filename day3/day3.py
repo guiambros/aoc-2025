@@ -3,7 +3,7 @@ def get_highest_number_from_slice(slice):
     return sorted(slice)[-1]
 
 def get_best_batt(row, start, n):
-    if n == 0 or row == '' :
+    if n == 0:
         return ""
     end = len(row) - n + 1
     highest = get_highest_number_from_slice(row[start:end])
