@@ -2,7 +2,6 @@ import operator
 import functools
 import numpy as np
 
-
 def remove_empty(input):
     return [i for i in input if i != ""]
 
@@ -30,9 +29,7 @@ def solution(input):  # pylint: disable=all
     # part 2
     def get_operands(input):
         num_lines = len(input)
-        numbers = []
-        s = ""
-        cols = 0
+        numbers, s, cols = [], "", 0
         while cols < len(input[0]):
             for i in range(num_lines):
                 s += input[i][cols]
