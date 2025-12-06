@@ -3,7 +3,7 @@ import functools
 import numpy as np
 
 def remove_empty(input):
-    return [i for i in input if i != ""]
+    return [el for el in input if el != ""]
 
 def solution(input):  # pylint: disable=all
     input = input.splitlines()
