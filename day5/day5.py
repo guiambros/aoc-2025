@@ -8,6 +8,7 @@ def dedup_intervals(intervals):
             merged[-1] = (merged[-1][0], max(merged[-1][1], r[1]))
     return merged
 
+
 def solution(input):  # pylint: disable=all
     dbs, ing = input.split("\n\n")
     dbs = dbs.splitlines()

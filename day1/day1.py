@@ -10,13 +10,14 @@ def timer(func):
         end_time = time.time()
         print(f"Function {func.__name__} took {end_time - start_time} seconds to run.")
         return result
+
     return wrapper
 
 
 def solution(input):  # pylint: disable=all
-    dial, inc = 50, 0    
+    dial, inc = 50, 0
     pwd, pwd2 = 0, 0
-    
+
     for rot in input:
         # parse input
         if rot[0] == "L":
@@ -25,9 +26,9 @@ def solution(input):  # pylint: disable=all
             inc = int(rot[1:])
 
         # part 2
-        if (dial > 0 and (dial+inc) < 0) or (dial < 0 and (dial+inc) > 0) or ((dial+inc) == 0): # if we crossed or at zero
+        if (dial > 0 and (dial + inc) < 0) or (dial < 0 and (dial + inc) > 0) or ((dial + inc) == 0):  # if we crossed or at zero
             pwd2 += 1
-        pwd2 += abs(dial+inc) // 100 # how many times we passed zero
+        pwd2 += abs(dial + inc) // 100  # how many times we passed zero
 
         # part 1
         dial += inc
@@ -36,7 +37,7 @@ def solution(input):  # pylint: disable=all
         dial = dial % 100
         if dial == 0:
             pwd += 1
-    
+
     print(f"Part 1: {pwd}")
     print(f"Part 2: {pwd2}")
 
@@ -47,7 +48,6 @@ if __name__ == "__main__":
 
     # -- each row w/ one alphanumerical element - e.g ["ABC", "DEF", "GHI"]
     input = [l for l in file.splitlines()]  # pylint: disable=all
-    
 
     # -- each row w/ multiple numbers: e.g. "10, 11, 12\n13, 14, 15" -> [[10, 11, 12], [13, 14, 15]]
     # -- adjust delimiter as needed

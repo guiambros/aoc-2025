@@ -2,8 +2,10 @@ import operator
 import functools
 import numpy as np
 
+
 def remove_empty(input):
     return [el for el in input if el != ""]
+
 
 def solution(input):  # pylint: disable=all
     input = input.splitlines()
@@ -18,7 +20,7 @@ def solution(input):  # pylint: disable=all
     for i, line in enumerate(input):
         operands = remove_empty(line.split(" "))
         for j, op in enumerate(operands):
-            numbers[i][j] = int(op)    
+            numbers[i][j] = int(op)
 
     # part 1
     answer = 0
@@ -38,7 +40,7 @@ def solution(input):  # pylint: disable=all
             numbers.append(int(s))
             s = ""
             cols += 1
-        return [l[cols+1:] for l in input], numbers
+        return [l[cols + 1 :] for l in input], numbers
 
     answer, i, operands = 0, 0, []
     while True:
@@ -47,7 +49,8 @@ def solution(input):  # pylint: disable=all
             break
         answer += functools.reduce(ops[i], operands)
         i += 1
-    print(f"Part 2: {answer}")    
+    print(f"Part 2: {answer}")
+
 
 if __name__ == "__main__":
     file = open("input_2025_6.txt", "rt", encoding="utf-8").read()
