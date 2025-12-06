@@ -1,18 +1,3 @@
-import time
-import numpy as np
-from collections import defaultdict
-
-
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        print(f"Function {func.__name__} took {end_time - start_time} seconds to run.")
-        return result
-
-    return wrapper
-
 def dedup_intervals(intervals):
     intervals.sort(key=lambda x: x[0])
     merged = []
