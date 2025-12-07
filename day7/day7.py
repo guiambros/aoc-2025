@@ -11,6 +11,7 @@ def solution_p1(map):  # pylint: disable=all
             if map[y][x] == "S":
                 B.add(x)
                 S[y][x] = 1
+                continue
 
             # p2: if empty space OR entering the splitter, with a beam coming through, AND the space immediately
             # above is NOT a splitter, then carry on the strength of the beam
@@ -32,5 +33,4 @@ def solution_p1(map):  # pylint: disable=all
 
 if __name__ == "__main__":
     file = open("input_2025_7.txt", "rt", encoding="utf-8").read()
-    map = file.split("\n")
-    solution_p1(map)
+    solution_p1(file.split("\n"))
